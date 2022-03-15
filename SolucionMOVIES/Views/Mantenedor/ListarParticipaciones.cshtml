@@ -1,0 +1,42 @@
+﻿@model List<ListadoCompleto>
+
+@{
+    ViewData["Title"] = "ListarParticipaciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<h1>Búsqueda avanzada</h1>
+<hr />
+
+<div class="input-group mb-3 w-50">
+  <span class="input-group-text" id="basic-addon1">Búsqueda</span>
+  <input id="myInput" type="text" class="form-control" placeholder="Buscar por actor/película/género" aria-label="Username" aria-describedby="basic-addon1">
+  <button class="btn btn-primary" type="button"><i class="bi bi-search"></i></button>
+</div>
+
+
+<div class="container">
+    <table class="table">
+         <thead>
+            <tr>
+              <th scope="col">Nombre película</th>
+              <th class="text-center" scope="col">Actor</th>
+              <th class="text-center" scope="col">Género</th>
+            </tr>
+          </thead>
+          <tbody id="myTable">
+            @foreach (var item in Model)
+            {
+                
+                <tr>
+                    <td>@item.PELICULA</td>
+                    <td class="text-center">@item.ACTOR</td>
+                    <td class="text-center">@item.GENERO</td>
+                    <td></td>
+                </tr>
+            }
+            
+          </tbody>
+    </table>
+</div>
+
